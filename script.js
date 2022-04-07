@@ -92,14 +92,16 @@ addCards.addEventListener("click", function () {
   teamCardDiv.setAttribute("class", "team-card");
   teamContainer.append(teamCardDiv);
   //   console.log(teamCardDiv);
-  teamCardDiv.innerHTML = `<div class="card-image">
-<img
-  src=${newCards.image}
-  alt=${newCards.name}
-/>
-</div>
-<div class="card-text">
-<h3>${newCards.name}</h3>
-<p>${newCards.role}</p>
-</div>`;
+  teamCardDiv.innerHTML = `
+        <div class="card-image">
+            <img
+            src=${newCards.image}
+            alt=${newCards.name}
+        />
+        </div>
+        <div class="card-text">
+            <h3>${newCards.name}</h3>
+            <p>${newCards.role}</p>
+        </div>
+    `;
 });

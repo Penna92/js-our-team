@@ -12,50 +12,50 @@
 // CREO ARRAY DI OGGETTI CARDS
 
 let cards = [
-    {
-        image: "img/wayne-barnett-founder-ceo.jpg",
-        name: "Wayne Barnett",
-        role: "Founder & CEO"
-    },
-    {
-        image: "img/angela-caroll-chief-editor.jpg",
-        name: "Angela Caroll",
-        role: "Office Manager"
-    },
-    {
-        image: "img/walter-gordon-office-manager.jpg",
-        name: "Walter Gordon",
-        role: "Office Manager"
-    },
-    {
-        image: "img/angela-lopez-social-media-manager.jpg",
-        name: "Angela Lopez",
-        role: "Social Media Manager"
-    },
-    {
-        image: "img/scott-estrada-developer.jpg",
-        name: "Scott Estrada",
-        role: "Developer"
-    },
-    {
-        image: "img/barbara-ramos-graphic-designer.jpg",
-        name: "Barbara Ramos",
-        role: "Graphic Designer"
-    }
-]
+  {
+    image: "img/wayne-barnett-founder-ceo.jpg",
+    name: "Wayne Barnett",
+    role: "Founder & CEO",
+  },
+  {
+    image: "img/angela-caroll-chief-editor.jpg",
+    name: "Angela Caroll",
+    role: "Office Manager",
+  },
+  {
+    image: "img/walter-gordon-office-manager.jpg",
+    name: "Walter Gordon",
+    role: "Office Manager",
+  },
+  {
+    image: "img/angela-lopez-social-media-manager.jpg",
+    name: "Angela Lopez",
+    role: "Social Media Manager",
+  },
+  {
+    image: "img/scott-estrada-developer.jpg",
+    name: "Scott Estrada",
+    role: "Developer",
+  },
+  {
+    image: "img/barbara-ramos-graphic-designer.jpg",
+    name: "Barbara Ramos",
+    role: "Graphic Designer",
+  },
+];
 
 let teamContainer = document.getElementsByClassName("team-container")[0];
+let teamCardDiv = "";
 // console.log(teamContainer);
 
 // CICLO CHE STAMPA LE VARIE CARDS E ASSEGNA LORO LE VARIE PROPRIETA' DEGLI OGGETTI
 
-for(let i = 0; i<cards.length; i++){
-
-let teamCardDiv = document.createElement("div");
-// console.log(teamCardDiv);
-teamCardDiv.setAttribute("class", "team-card");
-teamContainer.append(teamCardDiv);
-teamCardDiv.innerHTML = `<div class="card-image">
+for (let i = 0; i < cards.length; i++) {
+  let teamCardDiv = document.createElement("div");
+  // console.log(teamCardDiv);
+  teamCardDiv.setAttribute("class", "team-card");
+  teamContainer.append(teamCardDiv);
+  teamCardDiv.innerHTML = `<div class="card-image">
 <img
   src=${cards[i].image}
   alt=${cards[i].name}
@@ -64,6 +64,44 @@ teamCardDiv.innerHTML = `<div class="card-image">
 <div class="card-text">
 <h3>${cards[i].name}</h3>
 <p>${cards[i].role}</p>
-</div>`
+</div>`;
 }
 
+// NUOVO OGGETTO CARD DA POTER AGGIUNGERE AL CLICK CON LE PROPRIETA' SCELTE DALL'UTENTE
+
+let newCards = {
+  image: "",
+  name: "",
+  role: "",
+};
+
+let addCards = document.getElementById("addMemberButton");
+addCards.addEventListener("click", function () {
+  if (document.getElementById("image").value == 1) {
+    newCards.image = "img/new-team-member-01.jpg";
+  } else if (document.getElementById("image").value == 2) {
+    newCards.image = "img/new-team-member-02.jpg";
+  } else if (document.getElementById("image").value == 3) {
+    newCards.image = "img/new-team-member-03.jpg";
+  } else if (document.getElementById("image").value == 4) {
+    newCards.image = "img/new-team-member-04.jpg";
+  } else {
+    newCards.image = "img/unknown-team-member.jpg";
+  }
+  newCards.name = document.getElementById("name").value;
+  newCards.role = document.getElementById("role").value;
+  teamCardDiv = document.createElement("div");
+  teamCardDiv.setAttribute("class", "team-card");
+  teamContainer.append(teamCardDiv);
+//   console.log(teamCardDiv);
+  teamCardDiv.innerHTML = `<div class="card-image">
+<img
+  src=${newCards.image}
+  alt=${newCards.name}
+/>
+</div>
+<div class="card-text">
+<h3>${newCards.name}</h3>
+<p>${newCards.role}</p>
+</div>`;
+});

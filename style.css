@@ -74,6 +74,10 @@ section {
 
   max-width: 100%;
 
+  width: 400px;
+
+  height: 429px;
+  
   transition: all 1s;
 }
 

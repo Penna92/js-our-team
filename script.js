@@ -55,16 +55,18 @@ for (let i = 0; i < cards.length; i++) {
   // console.log(teamCardDiv);
   teamCardDiv.setAttribute("class", "team-card");
   teamContainer.append(teamCardDiv);
-  teamCardDiv.innerHTML = `<div class="card-image">
-<img
-  src=${cards[i].image}
-  alt=${cards[i].name}
-/>
-</div>
-<div class="card-text">
-<h3>${cards[i].name}</h3>
-<p>${cards[i].role}</p>
-</div>`;
+  teamCardDiv.innerHTML = `
+        <div class="card-image">
+            <img
+            src=${cards[i].image}
+            alt=${cards[i].name}
+            />
+        </div>
+        <div class="card-text">
+            <h3>${cards[i].name}</h3>
+            <p>${cards[i].role}</p>
+        </div>
+    `;
 }
 
 // NUOVO OGGETTO CARD DA POTER AGGIUNGERE AL CLICK CON LE PROPRIETA' SCELTE DALL'UTENTE
@@ -77,14 +79,10 @@ let newCards = {
 
 let addCards = document.getElementById("addMemberButton");
 addCards.addEventListener("click", function () {
-  if (document.getElementById("image").value == 1) {
-    newCards.image = "img/new-team-member-01.jpg";
-  } else if (document.getElementById("image").value == 2) {
-    newCards.image = "img/new-team-member-02.jpg";
-  } else if (document.getElementById("image").value == 3) {
-    newCards.image = "img/new-team-member-03.jpg";
-  } else if (document.getElementById("image").value == 4) {
-    newCards.image = "img/new-team-member-04.jpg";
+  //Posso fare in modo, anche senza un ciclo, di selezionare l'immagine con lo stesso indice che verrà inserito dall'utente.
+  let indiceImg = document.getElementById("image").value;
+  if (indiceImg !== "" && indiceImg >= 1 && indiceImg <= 4) {
+    newCards.image = `img/new-team-member-0${indiceImg}.jpg`;
   } else {
     newCards.image = "img/unknown-team-member.jpg";
   }
@@ -93,7 +91,7 @@ addCards.addEventListener("click", function () {
   teamCardDiv = document.createElement("div");
   teamCardDiv.setAttribute("class", "team-card");
   teamContainer.append(teamCardDiv);
-//   console.log(teamCardDiv);
+  //   console.log(teamCardDiv);
   teamCardDiv.innerHTML = `<div class="card-image">
 <img
   src=${newCards.image}

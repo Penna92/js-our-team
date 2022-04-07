@@ -20,7 +20,7 @@ let cards = [
   {
     image: "img/angela-caroll-chief-editor.jpg",
     name: "Angela Caroll",
-    role: "Office Manager",
+    role: "Chief Editor",
   },
   {
     image: "img/walter-gordon-office-manager.jpg",
